@@ -2,19 +2,22 @@
    Colours are set once here as tokens; dark mode swaps them below. */
 
 :root {
-  --court: #17432f;          /* deep court green: header, hero, buttons */
-  --court-deep: #0f2f21;     /* darker green for the footer */
-  --court-line: rgba(255, 255, 255, 0.16);
-  --on-court: #ffffff;       /* text on green */
-  --on-court-muted: #d3e4da;
-  --feather: #f2b33d;        /* warm accent, used as a fill only */
-  --on-feather: #2a1d00;     /* text on the accent */
-  --page: #f7f4ec;           /* shuttle-cream page background */
+  /* Club colours, from the logo: green #0f8638 and maroon #7a130e. */
+  --court: #0f8638;          /* club green: hero, page headings, buttons */
+  --court-deep: #0a5c26;     /* darker club green for the footer */
+  --court-line: rgba(255, 255, 255, 0.18);
+  --on-court: #ffffff;       /* text on green (white on the club green is 4.7:1, AA) */
+  --on-court-muted: #ffffff; /* anything paler than white fails AA on the club green */
+  --accent: #7a130e;         /* club maroon: sign-up buttons, number badges, call-to-action band */
+  --on-accent: #ffffff;
+  --header: #ffffff;         /* the logo has a white background, so the header stays white */
+  --page: #f6f8f5;           /* very pale green-grey page background */
   --card: #ffffff;
-  --ink: #1b2620;            /* main text */
-  --muted: #4b5a51;          /* secondary text (passes AA on page and card) */
-  --rule: #e2ddd0;
-  --link: #17643f;
+  --ink: #161c18;            /* main text (the logo's black, softened) */
+  --muted: #4a5850;          /* secondary text (passes AA on page and card) */
+  --rule: #dfe6e0;
+  --link: #0b6b2c;           /* the club green darkened so link text passes AA on the page */
+  --green-tint: #e6f3ea;     /* current page in the menu */
   --focus: #1f6feb;
   --shadow: 0 1px 2px rgba(20, 40, 30, 0.06), 0 8px 24px rgba(20, 40, 30, 0.08);
   --radius: 14px;
@@ -27,8 +30,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --court: #1d5a3f;
-    --court-deep: #0b1f16;
+    --court-deep: #08361a;
     --page: #111a15;
     --card: #18241d;
     --ink: #eef3ef;
@@ -98,8 +100,9 @@ p { margin: 0 0 1em; }
 /* ---------- Header ---------- */
 
 .site-header {
-  background: var(--court);
-  color: var(--on-court);
+  background: var(--header);
+  color: #161c18;
+  border-bottom: 4px solid var(--court);
 }
 .site-header .wrap {
   display: flex;
@@ -113,22 +116,10 @@ p { margin: 0 0 1em; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  color: var(--on-court);
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
   min-height: 44px;
 }
-.brand svg { width: 34px; height: 34px; flex: none; }
-.brand small {
-  display: block;
-  font-weight: 500;
-  font-size: 0.78rem;
-  color: var(--on-court-muted);
-  letter-spacing: 0;
-}
+.brand img { display: block; height: 76px; width: auto; }
+@media (max-width: 480px) { .brand img { height: 60px; } }
 
 .nav {
   display: flex;
@@ -144,18 +135,19 @@ p { margin: 0 0 1em; }
   min-height: 44px;
   padding: 0 12px;
   border-radius: 999px;
-  color: var(--on-court);
+  color: #161c18;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.98rem;
 }
-.nav a:hover { background: rgba(255, 255, 255, 0.1); }
+.nav a:hover { background: #f0f4f1; }
 .nav a[aria-current="page"] {
-  background: rgba(255, 255, 255, 0.16);
+  background: var(--green-tint);
+  color: #0b6b2c;
 }
-.nav a.nav-cta { background: var(--feather); color: var(--on-feather); }
-.nav a.nav-cta:hover { background: var(--feather); text-decoration: underline; }
-.nav a.nav-cta[aria-current="page"] { box-shadow: 0 0 0 2px var(--on-court); }
+.nav a.nav-cta { background: var(--accent); color: var(--on-accent); }
+.nav a.nav-cta:hover { background: var(--accent); text-decoration: underline; }
+.nav a.nav-cta[aria-current="page"] { box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--accent); }
 @media (max-width: 480px) {
   .nav { gap: 0; margin-left: -8px; }
   .nav a { padding: 0 8px; font-size: 0.93rem; }
@@ -179,7 +171,8 @@ p { margin: 0 0 1em; }
   transition: transform 0.15s ease;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-feather { background: var(--feather); color: var(--on-feather); }
+.btn-light { background: #ffffff; color: #0b6b2c; }
+.btn-accent { background: var(--accent); color: var(--on-accent); }
 .btn-ghost { border-color: rgba(255, 255, 255, 0.55); color: var(--on-court); }
 .btn-ghost:hover { background: rgba(255, 255, 255, 0.08); }
 .btn-court { background: var(--court); color: var(--on-court); }
@@ -223,7 +216,7 @@ p { margin: 0 0 1em; }
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--feather);
+  color: var(--on-court);
   margin-bottom: 14px;
 }
 .hero .lead {
@@ -336,7 +329,7 @@ p { margin: 0 0 1em; }
   letter-spacing: -0.06em;
   color: var(--court);
 }
-@media (prefers-color-scheme: dark) { .forty-number { color: var(--feather); } }
+@media (prefers-color-scheme: dark) { .forty-number { color: #5cc985; } }
 .forty-number small {
   display: block;
   font-size: 1rem;
@@ -371,8 +364,8 @@ p { margin: 0 0 1em; }
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--feather);
-  color: var(--on-feather);
+  background: var(--accent);
+  color: var(--on-accent);
   font-weight: 800;
   margin-bottom: 14px;
 }
@@ -394,8 +387,8 @@ p { margin: 0 0 1em; }
 .price strong { color: var(--on-court); }
 .price .free {
   display: inline-block;
-  background: var(--feather);
-  color: var(--on-feather);
+  background: var(--accent);
+  color: var(--on-accent);
   font-weight: 800;
   border-radius: 999px;
   padding: 6px 14px;
@@ -486,8 +479,8 @@ address { font-style: normal; font-weight: 600; margin-bottom: 1em; }
 
 /* Call to action band */
 .cta {
-  background: var(--feather);
-  color: var(--on-feather);
+  background: var(--accent);
+  color: var(--on-accent);
   border-radius: var(--radius);
   padding: 32px 24px;
   display: grid;
@@ -496,8 +489,8 @@ address { font-style: normal; font-weight: 600; margin-bottom: 1em; }
 }
 .cta h2 { margin-bottom: 4px; }
 .cta p { margin: 0; }
-.cta a:not(.btn) { color: var(--on-feather); }
-.cta .btn-court { justify-self: start; }
+.cta a:not(.btn) { color: var(--on-accent); }
+.cta .btn-court { justify-self: start; background: #ffffff; color: var(--accent); }
 @media (min-width: 760px) { .cta { grid-template-columns: 1fr auto; padding: 36px 40px; } }
 
 .email-big {
@@ -509,7 +502,7 @@ address { font-style: normal; font-weight: 600; margin-bottom: 1em; }
 .mt-text { margin: 14px 0 0; }
 
 .note {
-  border-left: 4px solid var(--feather);
+  border-left: 4px solid var(--accent);
   background: var(--card);
   padding: 14px 18px;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;

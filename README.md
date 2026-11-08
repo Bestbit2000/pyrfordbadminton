@@ -4,12 +4,14 @@ A four-page website for Pyrford Badminton Club, Woking. It's plain HTML and CSS:
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Home: when, where, cost, who it's for, 40 years, map and parking |
+| `index.html` | Home: when, where, cost, who it's for, 40+ years since 1982, map and parking |
 | `come-and-play.html` | How to join, the price, what to bring |
 | `questions.html` | Questions people ask |
 | `sign-up.html` | The sign-up form (a Google Form shown inside the page) |
-| `styles.css` | All the styling (colours are set at the top) |
-| `images/shuttle.svg` | The shuttlecock icon shown in browser tabs |
+| `styles.css` | All the styling (the club colours, green #0f8638 and maroon #7a130e, are set at the top) |
+| `images/logo.png` | The club's full logo, shown in the header |
+| `images/icon-round-*.png` | The round green shuttle icon shown in browser tabs |
+| `images/icon-180.png`, `icon-512.png` | Square versions for phone home screens (phones round the corners themselves) |
 
 The club's email address isn't anywhere on the site, so junk-mail programs that scan websites can't pick it up. Everything goes through the sign-up form.
 
@@ -59,6 +61,8 @@ If the club buys an address such as `pyrfordbadminton.co.uk`, add it under **Set
 - **The sign-up form**: step 1 above.
 - **More questions** (`questions.html`, marked `TO FILL IN`): how many courts, how games get organised, coming back after years away. If you add a question to the page, add it to the list at the top of the file too. That list is what search engines and AI assistants read.
 - **Photos** (`index.html`, marked `PHOTOS`): when you have some, save them in `images/` and uncomment the photo block. Give every picture a description (`alt`), and only use photos of members who are happy to be online.
+- **Check the other clubs we point to.** Beginners go to the No Strings Badminton sessions at Woking Leisure Centre, which Freedom Leisure lists as open to all abilities. League players go to Martlet Badminton Club (Fridays, Woking High School, Horsell); its listing on All About Weybridge has photos from 2016. Before going live, ask the leisure centre and Martlet that both are still running, and whether Martlet has a website of its own to link to.
+- **The move from Pyrford** (`index.html` and `questions.html`): when the club moved to Woking Leisure Centre, and where it played in Pyrford. Add the year to "It has since moved to Woking Leisure Centre" once you know it.
 - **Junior club link**: the Lightwater Junior Badminton Club link goes to its Surrey County Council directory entry. If the club has its own website (the old Google Site links to it), use that address instead.
 - **Last updated**: change the date at the bottom of each page whenever you update the site.
 
