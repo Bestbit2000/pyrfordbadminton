@@ -1,0 +1,13 @@
+{
+  "name": "Pyrford Badminton Club",
+  "short_name": "Pyrford BC",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f2efe7",
+  "theme_color": "#0f8638",
+  "icons": [
+    { "src": "images/icon-round-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "images/icon-round-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

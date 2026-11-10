@@ -1,0 +1,253 @@
+/* Pyrford Badminton Club, v3: "Court plan"
+   The page is one doubles court seen from above, painted on a darker hall floor.
+   White lines on club green, a maroon net across the middle, and text that only
+   ever sits inside the boxes the lines make. Widths are to scale: 1.5 | 8.5 | 8.5 | 1.5 ft.
+   The centre line runs from each back line to the short service line, as on a real court. */
+
+:root {
+  --green: #0f8638;
+  --floor: #0b6b2c;
+  --maroon: #7a130e;
+  --maroon-deep: #5c0d09;
+  --white: #ffffff;
+  --soft: rgba(255, 255, 255, .88);
+  --faint: rgba(255, 255, 255, .38);
+
+  --cond: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Barlow", system-ui, sans-serif;
+
+  --lw: 3px;                              /* painted line width */
+  --run: clamp(14px, 3.4vw, 56px);        /* hall floor around the court */
+  --px: 3cqw;                             /* inset from a line, sideways */
+  --py: 3.4cqw;                           /* inset from a line, up/down */
+
+  /* type scale: three display sizes, two text sizes */
+  --d-xl: 8.8cqw;
+  --d-l: clamp(44px, 5.4cqw, 78px);
+  --d-s: clamp(26px, 2.6cqw, 38px);
+  --t-l: clamp(20px, 1.75cqw, 26px);
+  --t-s: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--floor);
+  color: var(--white);
+  font: 400 19px/1.5 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, p, ul, table { margin: 0; padding: 0; }
+ul { list-style: none; }
+p { text-wrap: pretty; }
+h1, h2 { text-wrap: balance; }
+b { font-weight: 600; }
+a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+a:hover { text-decoration-thickness: 3px; }
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--white); color: var(--green); padding: 8px 14px; z-index: 99; }
+.skip:focus { left: 8px; }
+:focus-visible { outline: 3px solid var(--white); outline-offset: 4px; }
+
+/* ---------- the one button: maroon, like the net ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 12px; flex: none;
+  font: 600 18px/1 var(--cond);
+  letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+  padding: 17px 20px 16px 22px;
+  background: var(--maroon); color: var(--white);
+  transition: background-color .15s;
+}
+.btn::after { content: "\2192"; font: 500 18px/1 var(--body); transition: transform .15s; }
+.btn:hover { background: var(--maroon-deep); }
+.btn:hover::after { transform: translateX(3px); }
+.btn--small { font-size: 15px; padding: 12px 15px 11px 17px; }
+.btn--small::after { font-size: 15px; }
+.l-short { display: none; }
+
+/* ---------- the court ---------- */
+.hall { padding: var(--run); overflow: hidden; }
+.court {
+  container-type: inline-size;
+  position: relative;
+  max-width: 1440px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 8.5fr 8.5fr 1.5fr;
+  background: var(--green);
+  border: var(--lw) solid var(--white);
+}
+/* singles side lines run the full length */
+.court::before, .court::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: var(--lw);
+  background: var(--white); pointer-events: none;
+}
+.court::before { left: calc(7.5% - var(--lw) / 2); }
+.court::after { right: calc(7.5% - var(--lw) / 2); }
+
+.main { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; }
+.zone {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: subgrid;
+  position: relative;
+  padding: var(--py) 0;
+}
+.main > .zone, footer.zone { border-top: var(--lw) solid var(--white); }
+.zone--split::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 50%;
+  width: var(--lw); margin-left: calc(var(--lw) / -2);
+  background: var(--white); pointer-events: none;
+}
+/* the net */
+.main > .zone--net { border-top: 0; }
+.zone--net::before {
+  content: ""; position: absolute; z-index: 2; left: -1px; right: -1px; top: -5px; height: 10px;
+  background: var(--maroon);
+  border-top: 2px solid var(--white); border-bottom: 2px solid var(--white);
+}
+
+.cell { position: relative; z-index: 1; padding: 0 var(--px); min-width: 0; }
+.cell--l { grid-column: 2; }
+.cell--r { grid-column: 3; }
+.cell--w { grid-column: 2 / 4; }
+
+.mini {
+  font: 600 var(--t-s)/1 var(--cond); letter-spacing: .16em; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* ---------- back alley: header ---------- */
+.zone--alley { min-height: 12.5cqw; align-items: center; }
+.top__logo img { width: clamp(160px, 16cqw, 230px); }
+.top__right { display: flex; align-items: center; justify-content: flex-end; gap: clamp(18px, 2.2cqw, 32px); }
+.top__nav { display: flex; gap: clamp(16px, 2cqw, 28px); }
+.top__nav a { font: 600 16px/1 var(--cond); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; }
+.top__nav a:hover { border-color: var(--white); }
+
+/* ---------- service court: when / where / who ---------- */
+.main > .zone--service:first-child { row-gap: clamp(24px, 2.6cqw, 40px); padding-bottom: calc(var(--py) * 1.3); }
+.hero__title { grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: subgrid; align-items: end; }
+.fit { display: block; font: 700 var(--d-xl)/.8 var(--cond); text-transform: uppercase; white-space: nowrap; }
+/* THURSDAYS fills its box from line to line; 8-10PM shares its size and baseline */
+
+.stack { grid-row: 2; display: flex; flex-direction: column; gap: clamp(40px, 4.4cqw, 64px); }
+.lede { font: 500 var(--t-l)/1.3 var(--body); max-width: 21em; }
+.where__name { font: 700 var(--d-s)/1 var(--cond); text-transform: uppercase; letter-spacing: .01em; margin-bottom: 10px; }
+.where p + p { color: var(--soft); max-width: 28em; }
+.where a { color: var(--white); font-weight: 600; }
+
+.who p { max-width: 30em; color: var(--soft); }
+.bring__list li { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-top: 1px solid var(--faint); }
+.bring__list li:last-child { border-bottom: 1px solid var(--faint); }
+.bring__list span { color: var(--soft); font-size: var(--t-s); text-align: right; }
+
+/* ---------- front court: cost ---------- */
+.zone--front { min-height: 32.5cqw; }
+.cost { display: grid; grid-template-columns: auto 1fr; column-gap: clamp(24px, 3.5cqw, 52px); align-content: start; }
+.cost__fig { font: 700 calc(var(--d-xl) * 2)/.76 var(--cond); letter-spacing: -.02em; margin-left: -.04em; }
+.cost__side { align-self: end; max-width: 24em; }
+.cost__per { font: 500 var(--t-l)/1.28 var(--body); }
+.cost__note { margin-top: 12px; color: var(--soft); }
+.season {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap: .7cqw;
+  margin-top: clamp(28px, 3.4cqw, 48px);
+}
+.season span { height: 4.4cqw; background: var(--white); }
+.season span.is-free { background: none; border: 2.5px solid var(--white); }
+.season p {
+  grid-row: 2; margin-top: 8px;
+  font: 600 var(--t-s)/1.2 var(--cond); letter-spacing: .1em; text-transform: uppercase;
+}
+.season__a { grid-column: 1 / 3; }
+.season__b { grid-column: 3 / -1; }
+
+/* ---------- the net, and the shuttle that has just crossed it ---------- */
+.shuttle {
+  position: absolute; z-index: 3; pointer-events: none;
+  width: 25cqw; right: 8cqw; top: -4.2cqw;
+  transform: rotate(-24deg);
+  filter: drop-shadow(1.4cqw 2.2cqw .5cqw rgba(0, 35, 12, .32));
+}
+
+/* ---------- front court: joining ---------- */
+.join__big { font: 700 var(--d-l)/.86 var(--cond); text-transform: uppercase; max-width: 52cqw; }
+.join__how { margin-top: clamp(20px, 2.2cqw, 30px); max-width: 33em; }
+.join__act { display: flex; align-items: center; gap: clamp(20px, 2.4cqw, 36px); margin-top: clamp(24px, 2.8cqw, 40px); }
+.join__fine { font-size: var(--t-s); color: var(--soft); max-width: 24em; }
+
+/* ---------- far service court: history / other clubs ---------- */
+.zone--far { padding-bottom: calc(var(--py) * 1.4); }
+.hist, .else { grid-row: 1; }
+.hist__big { font: 700 var(--d-l)/.86 var(--cond); text-transform: uppercase; }
+.hist__big span:not(.js-years) { display: block; }
+.hist__text { margin-top: clamp(20px, 2.4cqw, 32px); max-width: 27em; color: var(--soft); }
+.else .mini { margin-top: .5cqw; }
+.else__table { border-collapse: collapse; width: 100%; }
+.else__table tr { border-top: 1px solid var(--faint); }
+.else__table tr:last-child { border-bottom: 1px solid var(--faint); }
+.else__table th, .else__table td { text-align: left; vertical-align: top; padding: 13px 0; }
+.else__table th { font: 600 var(--t-s)/1.4 var(--cond); letter-spacing: .1em; text-transform: uppercase; width: 34%; padding-right: 16px; padding-top: 15px; }
+.else__table td { color: var(--soft); font-size: 17px; }
+.else__table a { color: var(--white); font-weight: 600; }
+
+/* ---------- back alley: sign-off ---------- */
+.end__title { font: 700 var(--d-l)/.86 var(--cond); text-transform: uppercase; }
+.end__addr { font-size: var(--t-s); color: var(--soft); max-width: 30em; }
+
+/* ---------- smaller desktops ---------- */
+@media (max-width: 1100px) {
+  .top__nav { display: none; }
+}
+
+/* ---------- phone: one column inside the singles lines ---------- */
+@media (max-width: 760px) {
+  :root { --lw: 2px; --run: 12px; --px: 4.5cqw; --py: 8cqw; --d-l: 12cqw; --t-l: 19px; --t-s: 15px; }
+  body { font-size: 17px; line-height: 1.45; }
+  .court::before { left: calc(7.5% - 1px); }
+  .court::after { right: calc(7.5% - 1px); }
+  .zone--split::after { display: none; }
+  .cell, .cell--l, .cell--r { grid-column: 2 / 4; grid-row: auto !important; }
+
+  .zone--alley { min-height: 0; padding: 4.5cqw 0; }
+  header.zone--alley .cell { grid-row: 1 !important; }
+  .top__logo { justify-self: start; }
+  .top__logo img { width: 40cqw; }
+  .top__right { justify-self: end; }
+  .top__nav { display: none; }
+  .btn--small { font-size: 13px; padding: 10px 11px 9px 13px; gap: 7px; }
+  .btn--small::after { font-size: 13px; }
+  .l-long { display: none; }
+  .l-short { display: inline; }
+
+  .main > .zone--service:first-child { row-gap: 7cqw; }
+  .hero__title { grid-row: auto; row-gap: 3cqw; }
+  .fit--day { font-size: 18.4cqw; }
+  .fit--time { font-size: 29.4cqw; }
+  .stack { gap: 7cqw; }
+  .bring__list li { display: block; }
+  .bring__list span { display: block; text-align: left; }
+
+  .zone--front { min-height: 0; }
+  .cost { grid-template-columns: 1fr; }
+  .cost__fig { font-size: 44cqw; }
+  .cost__side { margin-top: 16px; }
+  .season { gap: 1.2cqw; }
+  .season span { height: 9cqw; }
+  .season span.is-free { border-width: 2px; }
+  .season p { font-size: 12px; letter-spacing: .06em; }
+  .season__b { text-align: right; }
+
+  .shuttle { width: 31cqw; right: 6cqw; top: -5cqw; }
+  .join__big { max-width: 56cqw; }
+  .join__how { margin-top: 7cqw; }
+  .join__act { flex-direction: column; align-items: flex-start; }
+
+  .zone--far { row-gap: 10cqw; }
+  .else__table th { width: 38%; }
+  .else__table td { font-size: 16px; }
+
+  footer.zone--alley { padding: 8cqw 0; row-gap: 5cqw; }
+}

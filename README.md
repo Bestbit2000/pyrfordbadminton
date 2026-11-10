@@ -1,6 +1,20 @@
 # Pyrford Badminton Club website
 
+**For now this site is a menu of six designs for the committee to compare.** `index.html` is the menu; each design is in its own folder:
+
+| Folder | What it is |
+| --- | --- |
+| `current/` | The site as it was (the files described below) |
+| `v2/` to `v6/` | Five new designs, built from the same facts |
+| `thumbs/` | The pictures on the menu |
+
+Once a design is chosen, its files go back at the top level in place of the menu, and the other folders can be deleted.
+
+## The current site
+
 A four-page website for Pyrford Badminton Club, Woking. It's plain HTML and CSS: no build step, nothing to install, and it costs nothing to host on GitHub Pages.
+
+Its files are in `current/`.
 
 | File | What it is |
 | --- | --- |

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pyrford Badminton Club · Thursday nights in Woking</title>
+  <meta name="description" content="Pyrford Badminton Club: friendly social badminton for adults, every Thursday 8pm to 10pm at Woking Leisure Centre. Your first two sessions are free.">
+  <meta name="theme-color" content="#0f8638">
+  <link rel="icon" type="image/png" sizes="48x48" href="images/icon-round-48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-round-192.png">
+  <link rel="apple-touch-icon" href="images/icon-180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!--
+  The whole page is one doubles court seen from above, read from one back line to the other.
+  Widths are to scale (20 ft): side alley 1.5 | half 8.5 | half 8.5 | side alley 1.5.
+  Zones down the page follow the court: back alley, service court, front court, NET,
+  front court, service court, back alley. Text never crosses a line.
+-->
+<div class="hall">
+<div class="court">
+
+  <!-- back alley: header -->
+  <header class="zone zone--alley zone--split">
+    <a class="cell cell--l top__logo" href="#" aria-label="Pyrford Badminton Club, back to top">
+      <img src="images/logo-reversed.png" alt="Pyrford Badminton Club" width="542" height="163">
+    </a>
+    <div class="cell cell--r top__right">
+      <nav class="top__nav" aria-label="Sections">
+        <a href="#cost">Cost</a>
+        <a href="#join">Joining</a>
+        <a href="#history">Since 1982</a>
+      </nav>
+      <a class="btn btn--small js-form" href="#join"><span class="l-long">Try two free sessions</span><span class="l-short">Try it free</span></a>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+
+    <!-- service court: when, where, who -->
+    <section class="zone zone--service zone--split" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="hero__title">
+        <span class="cell cell--l"><span class="fit fit--day">Thursdays</span></span>
+        <span class="cell cell--r"><span class="fit fit--time">8&ndash;10pm</span></span>
+      </h1>
+
+      <div class="cell cell--l stack">
+      <p class="lede">Friendly, social badminton for adults in Woking. Playing since 1982.</p>
+      <div class="who" id="who">
+        <h2 class="mini">Who plays</h2>
+        <p>Adults of any age over 18, at a social or intermediate standard, who would rather have a friendly game than a competitive one. Off the court, there are social events through the year.</p>
+      </div>
+      </div>
+      <div class="cell cell--r stack">
+      <div class="where">
+        <p class="where__name">Woking Leisure Centre</p>
+        <p>Kingfield Road, Woking GU22&nbsp;9BA, run by Freedom Leisure. Free parking for two hours, with plenty of spaces. <a href="https://www.google.com/maps/search/?api=1&amp;query=Woking+Leisure+Centre+Kingfield+Road+GU22+9BA" rel="noopener">Map</a></p>
+      </div>
+
+      <div class="bring">
+        <h2 class="mini">Bring</h2>
+        <ul class="bring__list">
+          <li>Your own racket <span>The club has no spares</span></li>
+          <li>Indoor sports shoes</li>
+          <li>A drink of water</li>
+          <li>Shuttles <span>Provided by the club</span></li>
+        </ul>
+      </div>
+      </div>
+    </section>
+
+    <!-- front court: cost -->
+    <section class="zone zone--front" id="cost" aria-labelledby="c-title">
+      <h2 id="c-title" class="sr">Cost</h2>
+      <div class="cell cell--w cost">
+        <p class="cost__fig">&pound;70</p>
+        <div class="cost__side">
+          <p class="cost__per">a quarter, which is roughly <b>&pound;5.40 a night</b> over 13&nbsp;weeks</p>
+          <p class="cost__note">The fee is set to pay for the courts, so it depends on how many members there are.</p>
+        </div>
+        <div class="season" role="img" aria-label="Two free sessions first, then 13 Thursdays a quarter for £70.">
+          <span class="is-free"></span><span class="is-free"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <p class="season__a">2 free</p>
+          <p class="season__b">Then 13 Thursdays a quarter, &pound;70</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- the net, then front court: joining -->
+    <section class="zone zone--front zone--net" id="join" aria-labelledby="j-title">
+      <img class="shuttle" src="images/shuttle.png" width="600" height="600" alt="Illustration: a white nylon shuttlecock with a red band, crossing the net.">
+      <div class="cell cell--w join">
+        <h2 id="j-title" class="join__big">Your first two sessions are free</h2>
+        <p class="join__how">Fill in the sign-up form and say a little about how you play. Someone from the club will get back to you about your first Thursday. Come twice for free, and if you&rsquo;d like to stay, pay the membership.</p>
+        <div class="join__act">
+          <a class="btn js-form" href="#join">Try two free sessions</a>
+          <p class="join__fine">Questions go on the same form. The club doesn&rsquo;t publish an email address.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- service court: history and other clubs -->
+    <section class="zone zone--service zone--split zone--far" id="history" aria-labelledby="h-title">
+      <div class="cell cell--l hist">
+        <h2 id="h-title" class="hist__big"><span class="js-years">44</span> years <span>of club nights</span></h2>
+        <p class="hist__text">It began on <time datetime="1982-07-01">1 July 1982</time> as an informal group of players in Pyrford, became a formal club on <time datetime="1991-07-01">1 July 1991</time>, and later moved to Woking Leisure Centre, keeping the Pyrford name.</p>
+      </div>
+      <div class="cell cell--r else" aria-labelledby="else-title">
+        <h2 id="else-title" class="mini">Not the right fit?</h2>
+        <table class="else__table">
+          <tr>
+            <th scope="row">Under 18</th>
+            <td><a href="https://www.surreycc.gov.uk/children/support-and-advice/families/directory/l/lightwater-junior-badminton-club" rel="noopener">Lightwater Junior Badminton Club</a></td>
+          </tr>
+          <tr>
+            <th scope="row">New to the game</th>
+            <td><a href="https://freedom-leisure.co.uk/centres/woking-leisure-centre/badminton" rel="noopener">No Strings Badminton</a> at Woking Leisure Centre, open to all abilities</td>
+          </tr>
+          <tr>
+            <th scope="row">League play</th>
+            <td><a href="https://www.allaboutweybridge.co.uk/?p=42633" rel="noopener">Martlet Badminton Club</a>, Horsell, on Friday evenings, with league teams</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- back alley: sign-off -->
+  <footer class="zone zone--alley zone--split">
+    <div class="cell cell--l end">
+      <p class="end__title">See you on Thursday</p>
+    </div>
+    <div class="cell cell--r end__r">
+      <p class="end__addr">All contact is through the sign-up form. Your details are only used to arrange your visit and to keep in touch about the club.</p>
+    </div>
+  </footer>
+
+</div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
