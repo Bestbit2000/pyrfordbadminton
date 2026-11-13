@@ -1,152 +1,198 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pyrford Badminton Club: website designs to compare</title>
-<meta name="description" content="Six designs for the Pyrford Badminton Club website, for the committee to compare.">
-<meta name="robots" content="noindex">
-<meta name="theme-color" content="#0f8638">
-<link rel="icon" type="image/png" sizes="48x48" href="current/images/icon-round-48.png">
-<link rel="apple-touch-icon" href="current/images/icon-180.png">
-<style>
-  :root {
-    --green: #0f8638;
-    --green-dark: #0a5f28;
-    --maroon: #7a130e;
-    --ink: #1c1f1d;
-    --muted: #4d5550;
-    --paper: #f6f7f4;
-    --card: #ffffff;
-    --line: #dfe3dd;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pyrford Badminton Club, Woking | Social badminton every Thursday</title>
+  <meta name="description" content="Pyrford Badminton Club is a friendly social badminton club for adults in Woking, Surrey. We play every Thursday, 8-10pm, at Woking Leisure Centre. £70 a quarter, first two sessions free.">
+  <meta property="og:title" content="Pyrford Badminton Club, Woking">
+  <meta property="og:description" content="Friendly social badminton for adults, every Thursday 8-10pm at Woking Leisure Centre. First two sessions free.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/icon-round-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="images/icon-round-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="images/icon-180.png">
+  <meta name="theme-color" content="#0f8638">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "Pyrford Badminton Club",
+    "description": "A friendly social badminton club for intermediate and social-standard adults in Woking, Surrey, founded on 1 July 1982.",
+    "sport": "Badminton",
+    "foundingDate": "1982-07-01",
+    "areaServed": ["Woking", "Pyrford", "Surrey"],
+    "address": {
+      "@type": "PostalAddress",
+      "name": "Woking Leisure Centre",
+      "streetAddress": "Kingfield Road",
+      "addressLocality": "Woking",
+      "addressRegion": "Surrey",
+      "postalCode": "GU22 9BA",
+      "addressCountry": "GB"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "https://schema.org/Thursday",
+      "opens": "20:00",
+      "closes": "22:00"
+    },
+    "priceRange": "£70 a quarter, first two sessions free"
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: var(--ink);
-    background: var(--paper);
-    line-height: 1.5;
-  }
-  header {
-    background: var(--card);
-    border-bottom: 4px solid var(--green);
-  }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-  .top { display: flex; align-items: center; gap: 16px; padding: 18px 0; }
-  .top img { height: 48px; width: auto; }
-  main { padding: 32px 0 56px; }
-  h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.15; margin: 0 0 12px; }
-  .intro { max-width: 680px; color: var(--muted); margin: 0 0 32px; }
-  .intro strong { color: var(--ink); }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .card a.shot { display: block; border-bottom: 1px solid var(--line); }
-  .card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
-  .body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-  .label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--maroon); }
-  h2 { font-size: 1.2rem; margin: 0; }
-  .body p { margin: 0 0 10px; color: var(--muted); }
-  .open {
-    margin-top: auto;
-    align-self: flex-start;
-    display: inline-block;
-    padding: 10px 18px;
-    min-height: 44px;
-    border-radius: 6px;
-    background: var(--green);
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-  }
-  .open:hover, .open:focus-visible { background: var(--green-dark); }
-  a:focus-visible { outline: 3px solid var(--maroon); outline-offset: 3px; }
-  footer { color: var(--muted); font-size: 0.9rem; padding: 0 0 40px; }
-</style>
+  </script>
 </head>
 <body>
-<header>
-  <div class="wrap top">
-    <img src="current/images/logo.png" width="542" height="163" alt="Pyrford Badminton Club">
-  </div>
-</header>
-<main class="wrap">
-  <h1>Website designs to compare</h1>
-  <p class="intro">Six designs for the club's website, all with the same facts. Have a look at each, on your phone as well as a computer, and say <strong>which you like</strong>, or <strong>which parts of each</strong>. Use your browser's back button to come back to this list.</p>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <ul class="grid">
-    <li class="card">
-      <a class="shot" href="current/" tabindex="-1" aria-hidden="true"><img src="thumbs/current.jpg" width="1280" height="800" alt="" loading="lazy"></a>
-      <div class="body">
-        <span class="label">Current site</span>
-        <h2>The site as it is now</h2>
-        <p>Four pages: home, come and play, questions and sign up.</p>
-        <a class="open" href="current/">Open the current site</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="images/logo.png" alt="Pyrford Badminton Club home" width="542" height="163"></a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="come-and-play.html">Come and play</a></li>
+          <li><a href="questions.html">Questions</a></li>
+          <li><a class="nav-cta" href="sign-up.html">Sign up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <svg class="court-lines" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect x="64" y="56" width="1072" height="488"/>
+        <path d="M64 93H1136M64 507H1136M442 56V544M758 56V544M125 56V544M1075 56V544M64 300H442M758 300H1136"/>
+        <path class="net" d="M600 40V560"/>
+      </svg>
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Woking, Surrey &middot; since 1982</span>
+          <h1>Friendly badminton in Woking, every Thursday night</h1>
+          <p class="lead">Pyrford Badminton Club is a social club for adults of all ages. We play every Thursday, 8&#8209;10pm, at Woking Leisure Centre. <strong>Your first two sessions are free.</strong></p>
+          <div class="actions">
+            <a class="btn btn-light" href="sign-up.html">Try two free sessions</a>
+            <a class="btn btn-ghost" href="come-and-play.html">How joining works</a>
+          </div>
+        </div>
+        <dl class="facts">
+          <div><dt>When</dt><dd>Every Thursday<span>8pm to 10pm</span></dd></div>
+          <div><dt>Where</dt><dd>Woking Leisure Centre<span>Kingfield Road, Woking GU22 9BA</span></dd></div>
+          <div><dt>Cost</dt><dd>&pound;70 a quarter<span>First two sessions free</span></dd></div>
+          <div><dt>Who</dt><dd>Adults, any age<span>Social and intermediate standard</span></dd></div>
+        </dl>
       </div>
-    </li>
-    <li class="card">
-      <a class="shot" href="v2/" tabindex="-1" aria-hidden="true"><img src="thumbs/v2.jpg" width="1280" height="800" alt="" loading="lazy"></a>
-      <div class="body">
-        <span class="label">Design 2</span>
-        <h2>Night in the hall</h2>
-        <p>A photo of a lit sports hall with the time in large, light lettering. Four pages.</p>
-        <a class="open" href="v2/">Open design 2</a>
+    </section>
+
+    <section class="section" aria-labelledby="fit">
+      <div class="wrap">
+        <h2 id="fit">Is it for you?</h2>
+        <p class="section-intro">We're a club for people who enjoy a good game and good company. Nobody comes to win a trophy.</p>
+        <div class="two-col">
+          <div class="card">
+            <h3>You'll fit right in if</h3>
+            <ul class="ticks">
+              <li>You're an adult, of any age</li>
+              <li>You play at a social or intermediate standard</li>
+              <li>You want friendly games rather than playing in competitions</li>
+              <li>You'd like a club with a social life off the court too</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Somewhere else might suit you better if</h3>
+            <ul class="crosses">
+              <li>You're under 18: try <a href="https://www.surreycc.gov.uk/children/support-and-advice/families/directory/l/lightwater-junior-badminton-club">Lightwater Junior Badminton Club</a></li>
+              <li>You're a beginner and starting out on your badminton journey: try the <a href="https://freedom-leisure.co.uk/centres/woking-leisure-centre/badminton">No Strings Badminton sessions</a> at Woking Leisure Centre, which are open to all abilities</li>
+              <li>You're looking for league or competitive badminton: try <a href="https://www.allaboutweybridge.co.uk/?p=42633">Martlet Badminton Club</a> in Horsell, which plays on Friday evenings and has league teams</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </li>
-    <li class="card">
-      <a class="shot" href="v3/" tabindex="-1" aria-hidden="true"><img src="thumbs/v3.jpg" width="1280" height="800" alt="" loading="lazy"></a>
-      <div class="body">
-        <span class="label">Design 3</span>
-        <h2>Court plan</h2>
-        <p>The whole page laid out as a green court, with the details in its boxes. One page.</p>
-        <a class="open" href="v3/">Open design 3</a>
+    </section>
+
+    <section class="section" aria-labelledby="history">
+      <div class="wrap">
+        <div class="forty">
+          <div class="forty-number" aria-hidden="true">40+<small>years, since 1982</small></div>
+          <div>
+            <h2 id="history">More than 40 years of Thursday nights</h2>
+            <p>Pyrford Badminton Club started on 1 July 1982 and has been playing fun, friendly badminton on Thursdays ever since. It began in Pyrford as an informal group of players and became a formal club on 1 July 1991. It has since moved to Woking Leisure Centre, but kept the Pyrford name.</p>
+            <!-- TO FILL IN: when the club moved from Pyrford to Woking Leisure Centre, and where it played in Pyrford. -->
+            <p>We also get together off the court, with regular social events through the year.</p>
+          </div>
+        </div>
+        <!--
+          PHOTOS: add pictures of club nights here. Save them in the images folder,
+          then uncomment this block and change the file names and descriptions.
+          Only use photos of members who are happy to be online.
+
+        <div class="gallery">
+          <img src="images/club-night.jpg" alt="Club members playing doubles at Woking Leisure Centre" width="800" height="533" loading="lazy">
+          <img src="images/social.jpg" alt="Club members at a social evening" width="800" height="533" loading="lazy">
+        </div>
+        -->
       </div>
-    </li>
-    <li class="card">
-      <a class="shot" href="v4/" tabindex="-1" aria-hidden="true"><img src="thumbs/v4.jpg" width="1280" height="800" alt="" loading="lazy"></a>
-      <div class="body">
-        <span class="label">Design 4</span>
-        <h2>Headline and court</h2>
-        <p>A big headline, then the day, place and price set out on a court diagram. One page.</p>
-        <a class="open" href="v4/">Open design 4</a>
+    </section>
+
+    <section class="section" aria-labelledby="find">
+      <div class="wrap">
+        <div class="find-us">
+          <div>
+            <h2 id="find">Find us</h2>
+            <address>
+              Woking Leisure Centre (Freedom Leisure)<br>
+              Kingfield Road<br>
+              Woking<br>
+              Surrey GU22 9BA
+            </address>
+            <p>We play every Thursday from 8pm to 10pm.</p>
+            <p>Parking at the leisure centre is free for 2 hours, and there are plenty of spaces.</p>
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Woking+Leisure+Centre+Kingfield+Road+Woking+GU22+9BA">Open in Google Maps</a></p>
+          </div>
+          <iframe class="map" title="Map showing Woking Leisure Centre, Kingfield Road, Woking" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.5643%2C51.3065%2C-0.5483%2C51.3135&amp;layer=mapnik&amp;marker=51.30996%2C-0.55626" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
-    </li>
-    <li class="card">
-      <a class="shot" href="v5/" tabindex="-1" aria-hidden="true"><img src="thumbs/v5.jpg" width="1280" height="800" alt="" loading="lazy"></a>
-      <div class="body">
-        <span class="label">Design 5</span>
-        <h2>The numbers on court</h2>
-        <p>Time, price and "free" in large type across a court grid, with a maroon net line. One page.</p>
-        <a class="open" href="v5/">Open design 5</a>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <h2>Come and have a go</h2>
+            <p>Fill in the short sign-up form. Your first two Thursdays are free.</p>
+          </div>
+          <a class="btn btn-court" href="sign-up.html">Sign up</a>
+        </div>
       </div>
-    </li>
-    <li class="card">
-      <a class="shot" href="v6/" tabindex="-1" aria-hidden="true"><img src="thumbs/v6.jpg" width="1280" height="800" alt="" loading="lazy"></a>
-      <div class="body">
-        <span class="label">Design 6</span>
-        <h2>Thursday night badminton</h2>
-        <p>A very large headline across the top, with illustrated players further down. One page.</p>
-        <a class="open" href="v6/">Open design 6</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h2>Pyrford Badminton Club</h2>
+          <p>Friendly social badminton for adults in Woking, every Thursday 8&#8209;10pm, since 1982.</p>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="sign-up.html">Sign up for two free sessions</a></li>
+            <li><a href="sign-up.html">Ask us a question</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="come-and-play.html">Come and play</a></li>
+            <li><a href="questions.html">Questions</a></li>
+            <li><a href="sign-up.html">Sign up</a></li>
+          </ul>
+        </div>
       </div>
-    </li>
-  </ul>
-</main>
-<footer class="wrap">
-  <p>The sign-up buttons in the new designs don't work yet: they'll go to the club's sign-up form once it's made. Pictures in the designs are illustrations, not photos of the club.</p>
-</footer>
+      <p class="footer-base">Last updated: November 2026</p>
+    </div>
+  </footer>
 </body>
 </html>

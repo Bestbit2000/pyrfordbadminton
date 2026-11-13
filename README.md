@@ -1,20 +1,8 @@
 # Pyrford Badminton Club website
 
-**For now this site is a menu of six designs for the committee to compare.** `index.html` is the menu; each design is in its own folder:
-
-| Folder | What it is |
-| --- | --- |
-| `current/` | The site as it was (the files described below) |
-| `v2/` to `v6/` | Five new designs, built from the same facts |
-| `thumbs/` | The pictures on the menu |
-
-Once a design is chosen, its files go back at the top level in place of the menu, and the other folders can be deleted.
-
-## The current site
-
 A four-page website for Pyrford Badminton Club, Woking. It's plain HTML and CSS: no build step, nothing to install, and it costs nothing to host on GitHub Pages.
 
-Its files are in `current/`.
+(In November 2026 the committee compared six designs and chose this one. The other five are still in the repository's history, in the commit "Six designs to compare".)
 
 | File | What it is |
 | --- | --- |
@@ -29,7 +17,13 @@ Its files are in `current/`.
 
 The club's email address isn't anywhere on the site, so junk-mail programs that scan websites can't pick it up. Everything goes through the sign-up form.
 
-## 1. Make the sign-up form (Google Forms, free)
+## 1. The sign-up form (Google Forms, free)
+
+**Done.** The club's form ("Curious? Experience a taster session.") is in `sign-up.html`: its embed address is the iframe's `src` and its ordinary address is the "Open the sign-up form on its own page" link. It asks for name, email and phone number.
+
+The page can't size the form's box to fit by itself, so its height is set in `styles.css` (`.signup-form`: 960px, and 1060px on phones). If you add questions to the form, make those taller: roughly 120px more per question.
+
+How it was made, and more questions you could add:
 
 Sign in to Google as the club (pyrfordbadclub@gmail.com), go to [forms.google.com](https://forms.google.com) and start a blank form called "Pyrford Badminton Club: sign up". Suggested questions:
 
@@ -53,7 +47,7 @@ Then:
 3. **Get the addresses for the site:** click **Send**.
    - The **<>** (embed) tab shows code containing `src="https://docs.google.com/forms/d/e/.../viewform?embedded=true"`. Copy just that address.
    - The **link** tab gives the form's ordinary address.
-4. **Put them in `sign-up.html`:** delete the `form-placeholder` block, uncomment the iframe and the line under it, and paste the embed address into `src="..."` and the ordinary address into `href="..."`.
+4. **Put them in `sign-up.html`:** paste the embed address into the iframe's `src="..."` and the ordinary address into the link's `href="..."`.
 
 The site says "We only use your details to arrange your visit and to keep in touch about the club." Check the committee is happy with that wording, and only keep sign-ups as long as you need them.
 
@@ -72,7 +66,6 @@ If the club buys an address such as `pyrfordbadminton.co.uk`, add it under **Set
 
 ## Still to fill in
 
-- **The sign-up form**: step 1 above.
 - **More questions** (`questions.html`, marked `TO FILL IN`): how many courts, how games get organised, coming back after years away. If you add a question to the page, add it to the list at the top of the file too. That list is what search engines and AI assistants read.
 - **Photos** (`index.html`, marked `PHOTOS`): when you have some, save them in `images/` and uncomment the photo block. Give every picture a description (`alt`), and only use photos of members who are happy to be online.
 - **Check the other clubs we point to.** Beginners go to the No Strings Badminton sessions at Woking Leisure Centre, which Freedom Leisure lists as open to all abilities. League players go to Martlet Badminton Club (Fridays, Woking High School, Horsell); its listing on All About Weybridge has photos from 2016. Before going live, ask the leisure centre and Martlet that both are still running, and whether Martlet has a website of its own to link to.
